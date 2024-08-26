@@ -1,0 +1,88 @@
+{
+  "name": "js-crdt-cli",
+  "version": "0.0.1",
+  "description": "Example CLI for js-ds-crdt",
+  "license": "MIT",
+  "author": "dozyio",
+  "type": "module",
+  "homepage": "https://github.com/dozyio/ds-crdt-interop",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dozyio/ds-crdt-interop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dozyio/ds-crdt-interop/issues"
+  },
+  "keywords": [
+    "crdt example"
+  ],
+  "files": [
+    "src",
+    "dist",
+    "!dist/test",
+    "!**/*.tsbuildinfo",
+    ".gitignore",
+    ".prettierignore"
+  ],
+  "module": "./dist/index.mjs",
+  "exports": "./dist/index.mjs",
+  "aegir": {
+    "tsRepo": true,
+    "build": {
+      "config": {
+        "platform": "node"
+      }
+    }
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "watch": "tsx --watch src/index.ts",
+    "build": "pkgroll --clean-dist",
+    "start": "tsx dist/index.mjs",
+    "profile": "tsx --prof dist/index.mjs",
+    "inspect": "tsx --inspect dist/index.mjs",
+    "test": "vitest run --hideSkippedTests --allowOnly",
+    "test:bench": "vitest bench",
+    "test:watch": "vitest",
+    "clean": "aegir clean",
+    "generate": "protons ./src/pb/*.proto",
+    "lint": "aegir lint",
+    "format": "yarn format:write",
+    "format:write": "yarn prettier --write --log-level warn .",
+    "format:check": "yarn prettier --list-different .",
+    "release": "aegir release",
+    "release:rc": "aegir release-rc"
+  },
+  "dependencies": {
+    "@chainsafe/libp2p-gossipsub": "^13.2.0",
+    "@chainsafe/libp2p-noise": "^15.1.1",
+    "@chainsafe/libp2p-yamux": "^6.0.2",
+    "@inquirer/prompts": "^5.3.8",
+    "@libp2p/identify": "^2.1.5",
+    "@libp2p/interface": "^1.7.0",
+    "@libp2p/logger": "^4.0.20",
+    "@libp2p/ping": "^1.1.5",
+    "@libp2p/tcp": "^9.1.5",
+    "blockstore-core": "^5.0.0",
+    "datastore-core": "^10.0.0",
+    "fastify": "^4.28.1",
+    "helia": "^4.2.5",
+    "interface-datastore": "^8.3.0",
+    "libp2p": "^1.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@types/readline-sync": "^1.4.8",
+    "aegir": "^44.1.1",
+    "eslint": "^9.9.1",
+    "eslint-config-ipfs": "^7.0.6",
+    "eslint-plugin-n": "^17.10.2",
+    "pkgroll": "^2.4.2",
+    "tsx": "^4.18.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

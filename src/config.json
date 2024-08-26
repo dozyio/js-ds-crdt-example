@@ -1,0 +1,54 @@
+{
+  "peers": [
+    {
+      "private_key": "08011240f7a7c5b0e90a3c29d0aa63bc4d5ef4bbd3944a875b4958c5bf16ac6d768b97e973fa734edb73dd3985b41addd6ef30ae9420193d8275a2f5a64ee521b47fa746",
+      "public_key": "0801122073fa734edb73dd3985b41addd6ef30ae9420193d8275a2f5a64ee521b47fa746",
+      "peer_id": "12D3KooWHd6Z4pSW4wDAB5M1q4SSiJUkdMbiWE7f56MCqGq8psCy"
+    },
+    {
+      "private_key": "08011240be5d8bf7971c9a5b01892cf7ff5603f735a92a94623903787c15e994584eab9ce46ad62ac53a9db270ffbe03073be479f6ffc123270fc54c712a98022c8050bc",
+      "public_key": "08011220e46ad62ac53a9db270ffbe03073be479f6ffc123270fc54c712a98022c8050bc",
+      "peer_id": "12D3KooWRC1cNip3xyDwzxrCryQ3V7bCsVF6Q3Nvh4o2CBSFpEmR"
+    },
+    {
+      "private_key": "08011240fe7e1181282d925878ac796a4d6c95afcbb513017bdb768697b27904e9b3ede746ac48b54e867d9d76afafc7394af30af43dbe907704111703cf983db7a1a1b9",
+      "public_key": "0801122046ac48b54e867d9d76afafc7394af30af43dbe907704111703cf983db7a1a1b9",
+      "peer_id": "12D3KooWEaF5PduzobEeJEDGvK4pBt5mejrNQqcGzubeVbiupQyN"
+    },
+    {
+      "private_key": "08011240eacb7b832bac4be89a0f96018676b1f21780b94b3cdac7cc34a6476fb563e2a5e53871b85431cc55df5af08ab6cd5cd5732be2c31a15919aff67fcb38bee64f3",
+      "public_key": "08011220e53871b85431cc55df5af08ab6cd5cd5732be2c31a15919aff67fcb38bee64f3",
+      "peer_id": "12D3KooWRF9T7vdVhZUXSzajfkA3NxAm9BoWjtasiAyhf1tbWrxJ"
+    },
+    {
+      "private_key": "08011240abf95ed525216906f4afb51fe622f2a1e81aff0a8c610dc4b1df06c07d61f38b557818beb2bd19241ffd51564959728ea10ca4de813cdba33d740383ced10a51",
+      "public_key": "08011220557818beb2bd19241ffd51564959728ea10ca4de813cdba33d740383ced10a51",
+      "peer_id": "12D3KooWFa137SiRDH13YUdPXqNCYZqr6ywmd9xSLLX64oNAKsDJ"
+    },
+    {
+      "private_key": "08011240db7ca2b835557ed1f97d53a708d4b53cab026c973d775b1b71591663a4842f54c107a342e86f75f3ce720a7d1800c9a1b1fdb1e83d364949464da76b267d3e4d",
+      "public_key": "08011220c107a342e86f75f3ce720a7d1800c9a1b1fdb1e83d364949464da76b267d3e4d",
+      "peer_id": "12D3KooWNoscJ42TDjoeDNpA1htvVPTXJV2KvbQC99rZ75qXqW9A"
+    },
+    {
+      "private_key": "08011240d1d14d845e802faca36d6f5e222981b117ce3e42172568a3580e3c8e469b1c10f70fc90e14e39e1c1e38ebbc64533740439132b602c0da1ea26b7174e9dc9b7b",
+      "public_key": "08011220f70fc90e14e39e1c1e38ebbc64533740439132b602c0da1ea26b7174e9dc9b7b",
+      "peer_id": "12D3KooWSSnq98XwDaymrZe9pF3Y8bRVDbEFszFmjWB4uGwoWV8E"
+    },
+    {
+      "private_key": "0801124072c816bcd0029f515829a570bc632506cd1d4eb06b53d3040a66eb7714ebb626a1343fe7b7f5a730b096a57cc8df0ea7864614b4953050a16c57c24e6dc62a12",
+      "public_key": "08011220a1343fe7b7f5a730b096a57cc8df0ea7864614b4953050a16c57c24e6dc62a12",
+      "peer_id": "12D3KooWLfe1zmA7dFpuDi9ePRVX724yfRkM2VstxFurAw8vobG5"
+    },
+    {
+      "private_key": "0801124028b82eeb506cf133dad8a64fd2af1fb6081adba09249eb409febff9791b139e5a4a43992ea5dbb5485f563ba4415445285ccce7950261fb6379a9e2fb0ac46b4",
+      "public_key": "08011220a4a43992ea5dbb5485f563ba4415445285ccce7950261fb6379a9e2fb0ac46b4",
+      "peer_id": "12D3KooWLu4GmCQgxV9qmACEhxMPdTpRzACbxtPsMaL8PtrPNWCT"
+    },
+    {
+      "private_key": "08011240bee1982b5532b69bd53c1ad252daac89e81f170af2e09e9b66a2b5d8720b36488b77dd4c1934a2c978d11fed7fd2b484c23e7055166d3ae1c572c956bb0b08cc",
+      "public_key": "080112208b77dd4c1934a2c978d11fed7fd2b484c23e7055166d3ae1c572c956bb0b08cc",
+      "peer_id": "12D3KooWKCnr7Jv7REoczWjmC7qfUv7YaKs27jN7dHLu9LZvhswy"
+    }
+  ]
+}
