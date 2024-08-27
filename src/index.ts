@@ -356,9 +356,10 @@ function list(ds: CRDTDatastore) {
 }
 
 async function get(ds: CRDTDatastore, key: string) {
-  const value = await ds.get(new Key(key));
+  const k = new Key(key);
+  const value = await ds.get(k);
   if (value) {
-    console.log(`[${key}] -> ${value}`);
+    console.log(`[${k.toString()}] -> ${value}`);
   } else {
     printErr('Key not found');
   }
@@ -372,7 +373,6 @@ async function put(ds: CRDTDatastore, key: string, value: string) {
 
 async function deleteKey(ds: CRDTDatastore, key: string) {
   await ds.delete(new Key(key))
-  console.log(`Removed: [${key}]`);
 }
 
 function debugCmd(ds: CRDTDatastore, option: string) {
@@ -400,11 +400,9 @@ function debugCmd(ds: CRDTDatastore, option: string) {
 
 async function connect(ds: CRDTDatastore, ma: string) {
   const maDialable = multiaddr(ma)
-  console.log(maDialable)
   try {
     const conn = await ds.dagService.libp2p.dial(maDialable)
-    console.log(conn)
-    console.log(`Connected to ${multiaddr}`);
+    console.log(`Connected to ${conn.remoteAddr.toString()}`);
   } catch (err) {
     printErr('Failed to connect')
   }
