@@ -71,6 +71,7 @@
     "fastify": "^4.28.1",
     "helia": "^4.2.5",
     "interface-datastore": "^8.3.0",
+    "js-ds-crdt": "^0.0.19",
     "libp2p": "^1.9.2"
   },
   "devDependencies": {

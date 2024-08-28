@@ -2,10 +2,12 @@
 
 WIP
 
-Needs
-`yarn link` in the js-ds-crdt folder
+Example app using [js-ds-crdt](https://github.com/dozyio/js-ds-crdt)
 
-followed by
+Needs
+`yarn link` in the `js-ds-crdt` folder
+
+Followed by
 `yarn link js-ds-crdt` in this folder
 
-Note: js-ds-crdt not added to package.json yet
+Run `yarn build` in `js-ds-crdt` folder to use latest changes
