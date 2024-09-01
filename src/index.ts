@@ -8,8 +8,6 @@ import { prefixLogger } from '@libp2p/logger'
 import { peerIdFromKeys } from '@libp2p/peer-id'
 import { tcp } from '@libp2p/tcp'
 import { multiaddr } from '@multiformats/multiaddr'
-import { MemoryBlockstore } from 'blockstore-core'
-import { MemoryDatastore } from 'datastore-core'
 import Fastify from 'fastify'
 import { createHelia, type HeliaLibp2p } from 'helia'
 import { type Blockstore } from 'interface-blockstore'
@@ -21,6 +19,10 @@ import type { Libp2p, PeerId } from '@libp2p/interface'
 import { CRDTDatastore, defaultOptions, msgIdFnStrictNoSign, PubSubBroadcaster, type CRDTLibp2pServices, type Options } from 'js-ds-crdt'
 import { bitswap } from '@helia/block-brokers'
 import { ping } from '@libp2p/ping';
+import { MemoryBlockstore } from 'blockstore-core'
+import { MemoryDatastore } from 'datastore-core'
+import { LevelDatastore } from 'datastore-level'
+import { FsBlockstore } from 'blockstore-fs'
 
 const postKVOpts = {
   schema: {
@@ -94,10 +96,6 @@ async function createNode(peerId: PeerId, port: number | string, datastore: Data
     ],
     connectionGater: {
       denyDialMultiaddr: async () => false,
-    },
-    connectionMonitor: {
-      // reenabled after https://github.com/libp2p/js-libp2p/pull/2671
-      enabled: false,
     },
     connectionManager: {
       minConnections: 1
@@ -269,6 +267,25 @@ async function startServer(datastore: CRDTDatastore, httpHost: string, httpPort:
 }
 
 export default async function newTestServer(): Promise<CRDTDatastore> {
+  // const datastore = new MemoryDatastore()
+  // const blockstore = new MemoryBlockstore()
+
+  const datastore = new LevelDatastore('./data/1/ds')
+  try {
+  await datastore.open()
+  } catch (err) {
+    console.error(err)
+    process.exit(1)
+  }
+
+  const blockstore = new FsBlockstore('./data/1/bs')
+  try {
+  await blockstore.open()
+  } catch (err) {
+    console.error(err)
+    process.exit(1)
+  }
+
   let publicKey = config.peers[0].public_key
   let privateKey = config.peers[0].private_key
 
@@ -312,9 +329,6 @@ export default async function newTestServer(): Promise<CRDTDatastore> {
     httpPort = parseInt(process.env.HTTP_PORT)
   }
 
-  const datastore = new MemoryDatastore()
-  const blockstore = new MemoryBlockstore()
-
   const opts: Partial<Options> = {
     putHook: (key: string, value: Uint8Array) => {
       console.log(`Added: [${new Key(key).toString()}] -> ${new TextDecoder().decode(value)}`)
@@ -351,8 +365,17 @@ function printErr(err: string) {
   console.log("> ");
 }
 
-function list(ds: CRDTDatastore) {
-  console.log('todo')
+async function list(ds: CRDTDatastore) {
+  const r = await ds.query({})
+
+  r.forEach(async (item) => {
+    console.log(`[${item.key.toString()}] -> ${new TextDecoder().decode(item.value)}`)
+  })
+  // const list: Record<string, Uint8Array> = {}
+  // for await (const { key, value } of ds.query({})) {
+  //   list[key.toString()] = value
+  // }
+  // console.log(list)
 }
 
 async function get(ds: CRDTDatastore, key: string) {
@@ -366,9 +389,10 @@ async function get(ds: CRDTDatastore, key: string) {
 }
 
 async function put(ds: CRDTDatastore, key: string, value: string) {
+  const k = new Key(key)
   const v = new TextEncoder().encode(value)
-  await ds.put(new Key(key), v);
-  console.log(`Added: [${key}] -> ${value}`);
+  await ds.put(k, v);
+  console.log(`Added: [${k.toString()}] -> ${value}`);
 }
 
 async function deleteKey(ds: CRDTDatastore, key: string) {
